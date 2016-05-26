@@ -8,7 +8,7 @@ Load the activity.csv dataset from my local path.
 activity <- read.csv("D:\\Coursera\\Material\\05. Reproducible Research\\CourseProject\\activity.csv")
 ```
 
-## 2. What is mean total number of steps taken per day?
+## 2. What is Mean/Median total number of steps taken per day?
 
 First, Remove NA data. And draw the histogram to see the distribusion of steps taken per day.
 Then, claculate the mean and median. We got mean = 10766.19 and median = 10766.
@@ -74,6 +74,7 @@ for (i in 1:nrow(activity)) {
 }
 ```
 
+## 5. Checking if the imputing missing values make sense
 Calculate the mean/median again, and draw the histogram & time series plot.
 We can see that the missing value imputing is pretty make sense because the statistics summary & graph looks almost the same.
 
@@ -116,6 +117,6 @@ names(which.max(steps_by_interval))
 ## [1] "835"
 ```
 
-## 5. Are there differences in activity patterns between weekdays and weekends?
+## 6. Are there differences in activity patterns between weekdays and weekends?
 Yes, it is totally different. From the plot, we can see the weekdays & weekends is totally different steps distribution.
 

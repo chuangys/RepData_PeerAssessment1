@@ -124,8 +124,8 @@ $(document).ready(function () {
 <p>Load the activity.csv dataset from my local path.</p>
 <pre class="r"><code>activity &lt;- read.csv(&quot;D:\\Coursera\\Material\\05. Reproducible Research\\CourseProject\\activity.csv&quot;)</code></pre>
 </div>
-<div id="what-is-mean-total-number-of-steps-taken-per-day" class="section level2">
-<h2>2. What is mean total number of steps taken per day?</h2>
+<div id="what-is-meanmedian-total-number-of-steps-taken-per-day" class="section level2">
+<h2>2. What is Mean/Median total number of steps taken per day?</h2>
 <p>First, Remove NA data. And draw the histogram to see the distribusion of steps taken per day. Then, claculate the mean and median. We got mean = 10766.19 and median = 10766.</p>
 <pre class="r"><code>activity_final &lt;- activity[!is.na(activity$steps),]
 steps_by_date &lt;- aggregate(steps ~ date, data=activity_final, sum)
@@ -157,6 +157,9 @@ for (i in 1:nrow(activity)) {
      activity_imputed$steps[i] &lt;- as.integer(steps_by_interval[j]);
   }   
 }</code></pre>
+</div>
+<div id="checking-if-the-imputing-missing-values-make-sense" class="section level2">
+<h2>5. Checking if the imputing missing values make sense</h2>
 <p>Calculate the mean/median again, and draw the histogram &amp; time series plot. We can see that the missing value imputing is pretty make sense because the statistics summary &amp; graph looks almost the same.</p>
 <pre class="r"><code>steps_by_date &lt;- aggregate(steps ~ date, data=activity_imputed, sum)
 hist(activity_imputed$steps)</code></pre>
@@ -173,7 +176,7 @@ plot(row.names(steps_by_interval), steps_by_interval, type=&quot;l&quot;,
 <pre><code>## [1] &quot;835&quot;</code></pre>
 </div>
 <div id="are-there-differences-in-activity-patterns-between-weekdays-and-weekends" class="section level2">
-<h2>5. Are there differences in activity patterns between weekdays and weekends?</h2>
+<h2>6. Are there differences in activity patterns between weekdays and weekends?</h2>
 <p>Yes, it is totally different. From the plot, we can see the weekdays &amp; weekends is totally different steps distribution.</p>
 </div>
 
